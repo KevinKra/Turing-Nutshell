@@ -1,0 +1,44 @@
+@import "../../_styles/globals.scss";
+
+.NumberGuesser {
+  .header-primary {
+    border: 1px solid red;
+    text-align: center;
+    height: 15vh;
+  }
+  .main-section {
+    display: flex;
+    border: 1px solid green;
+  }
+  .inputs-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid blue;
+    background-color: lightgrey;
+    width: 50vw;
+    min-height: 85vh;
+  }
+  .outputs-section {
+    border: 1px solid orange;
+    width: 50vw;
+    min-height: 85vh;
+  }
+
+  .container-results-section {
+    display: flex;
+    flex-direction: column;
+    .challenger-outputs {
+      display: flex;
+    }
+    h3 {
+      display: block;
+      border: 1px solid red;
+    }
+    aside {
+      width: 50%;
+      text-align: center;
+      border: 1px solid red;
+    }
+  }
+}
