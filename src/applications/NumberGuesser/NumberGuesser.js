@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import SetRange from "./components/SetRange/SetRange";
-import ChallengerSection from "./components/ChallengerSection/ChallengerSection";
+import SetRange from "./containers/SetRange/SetRange";
+import ChallengerSection from "./containers/ChallengerSection/ChallengerSection";
 import "./NumberGuesser.scss";
 
 class NumberGuesser extends Component {
