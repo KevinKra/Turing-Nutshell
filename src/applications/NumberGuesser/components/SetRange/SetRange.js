@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../../../_redux/actions";
 import TextInput from "../Input/Input";
 import Button from "../Button/Button";
 import { calcRandomNum } from "../../../../_utils/helpers";
 import "./SetRange.scss";
 
-export default class SetRange extends Component {
+class SetRange extends Component {
   state = {
     minRange: 0,
     maxRange: 100
@@ -18,7 +20,7 @@ export default class SetRange extends Component {
   handleClick = e => {
     e.preventDefault();
     const { minRange, maxRange } = this.state;
-    console.log(calcRandomNum(minRange, maxRange));
+    this.props.setRandomNumber(calcRandomNum(minRange, maxRange));
   };
 
   render() {
@@ -57,3 +59,16 @@ export default class SetRange extends Component {
     );
   }
 }
+
+const mapStateToProps = store => ({
+  randomNumber: store.NGRandomNumber
+});
+
+const mapDispatchToProps = dispatch => ({
+  setRandomNumber: number => dispatch(actions.setRandomNumber(number))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SetRange);

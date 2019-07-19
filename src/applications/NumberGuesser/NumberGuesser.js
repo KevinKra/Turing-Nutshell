@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import TextInput from "./components/Input/Input";
 import SetRange from "./components/SetRange/SetRange";
+import * as actions from "../../_redux/actions/";
 import "./NumberGuesser.scss";
 
-export default class NumberGuesser extends Component {
+class NumberGuesser extends Component {
   render() {
     return (
       <section className="NumberGuesser project-page">
@@ -63,3 +65,9 @@ export default class NumberGuesser extends Component {
     );
   }
 }
+
+const mapStateToProps = store => ({
+  randomNumber: store.NGRandomNumber
+});
+
+export default connect(mapStateToProps)(NumberGuesser);
