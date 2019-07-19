@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import TextInput from "./components/Input/Input";
 import SetRange from "./components/SetRange/SetRange";
-import * as actions from "../../_redux/actions/";
+import ChallengerSection from "./components/ChallengerSection/ChallengerSection";
 import "./NumberGuesser.scss";
 
 class NumberGuesser extends Component {
@@ -18,29 +17,7 @@ class NumberGuesser extends Component {
         <main className="main-section">
           <section className="inputs-section">
             <SetRange title="Set Range" />
-            <section className="container-user-guesses container">
-              <form className="form-enter-guesses">
-                <div className="challenger-1-inputs">
-                  <h3>Challenger 1</h3>
-                  <TextInput
-                    name="Name"
-                    label="challenger-name-1"
-                    width="300px"
-                  />
-                  <TextInput name="Guess" label="challenger-guess-1" />
-                </div>
-                <div className="challenger-1-inputs">
-                  <h3>Challenger 2</h3>
-                  <TextInput name="Name" label="challenger-name-2" />
-                  <TextInput name="Guess" label="challenger-guess-2" />
-                </div>
-                <div className="challenger-buttons">
-                  <button className="submit-guess">Submit Guess</button>
-                  <button className="reset-game">Reset Game</button>
-                  <button className="clear-game">Clear Game</button>
-                </div>
-              </form>
-            </section>
+            <ChallengerSection />
             <section className="container-results-section container">
               <h3>Latest Score</h3>
               <div className="challenger-outputs">
