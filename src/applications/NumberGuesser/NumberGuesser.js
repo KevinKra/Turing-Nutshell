@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import TextInput from "./components/Input/Input";
+import SetRange from "./components/SetRange/SetRange";
 import "./NumberGuesser.scss";
 
 export default class NumberGuesser extends Component {
@@ -13,31 +15,22 @@ export default class NumberGuesser extends Component {
         </header>
         <main className="main-section">
           <section className="inputs-section">
-            <section className="container-set-range container">
-              <h3>Set Range</h3>
-              <form className="form-set-range">
-                <label htmlFor="min-range">Min Range</label>
-                <input type="text" name="min-range" />
-                <label htmlFor="max-range">Min Range</label>
-                <input type="text" name="max-range" />
-                <button className="btn">Update</button>
-              </form>
-            </section>
+            <SetRange title="Set Range" />
             <section className="container-user-guesses container">
               <form className="form-enter-guesses">
                 <div className="challenger-1-inputs">
                   <h3>Challenger 1</h3>
-                  <label htmlFor="challenger-name-1">Name</label>
-                  <input type="text" name="challenger-name-1" />
-                  <label htmlFor="challenger-guess-1">Guess</label>
-                  <input type="text" name="challenger-guess-1" />
+                  <TextInput
+                    name="Name"
+                    label="challenger-name-1"
+                    width="300px"
+                  />
+                  <TextInput name="Guess" label="challenger-guess-1" />
                 </div>
                 <div className="challenger-1-inputs">
                   <h3>Challenger 2</h3>
-                  <label htmlFor="challenger-name-2">Name</label>
-                  <input type="text" name="challenger-name-2" />
-                  <label htmlFor="challenger-guess-2">Guess</label>
-                  <input type="text" name="challenger-guess-2" />
+                  <TextInput name="Name" label="challenger-name-2" />
+                  <TextInput name="Guess" label="challenger-guess-2" />
                 </div>
                 <div className="challenger-buttons">
                   <button className="submit-guess">Submit Guess</button>
