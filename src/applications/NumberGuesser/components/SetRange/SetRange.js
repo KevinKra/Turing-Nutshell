@@ -1,26 +1,37 @@
 import React, { Component } from "react";
+import { calcRandomNum } from "../../../../_utils/helpers";
 import { connect } from "react-redux";
 import * as actions from "../../../../_redux/actions";
 import TextInput from "../Input/Input";
 import Button from "../Button/Button";
-import { calcRandomNum } from "../../../../_utils/helpers";
 import "./SetRange.scss";
 
 class SetRange extends Component {
   state = {
-    minRange: 0,
-    maxRange: 100
+    minRange: this.props.NGNumbers.minRange,
+    maxRange: this.props.NGNumbers.maxRange
   };
+
+  componentDidMount() {
+    this.initialRandomNumber();
+  }
 
   handleChange = e => {
     const { name, value } = e.target;
-    this.setState({ [name]: parseInt(value) });
+    this.setState({ [name]: parseInt(value) || "" });
   };
 
   handleClick = e => {
     e.preventDefault();
     const { minRange, maxRange } = this.state;
-    this.props.setRandomNumber(calcRandomNum(minRange, maxRange));
+    const randomNumber = calcRandomNum(minRange || 0, maxRange || 100);
+    this.props.setNumbers({ minRange, maxRange, randomNumber });
+  };
+
+  initialRandomNumber = () => {
+    const { minRange, maxRange } = this.state;
+    const randomNumber = calcRandomNum(minRange || 0, maxRange || 100);
+    this.props.setNumbers({ minRange: "", maxRange: "", randomNumber });
   };
 
   render() {
@@ -32,6 +43,7 @@ class SetRange extends Component {
             <TextInput
               label="Min Range"
               name="minRange"
+              value={this.state.minRange}
               autoComplete="off"
               handleChange={this.handleChange}
               width="165px"
@@ -39,6 +51,7 @@ class SetRange extends Component {
             <TextInput
               label="Max Range"
               name="maxRange"
+              value={this.state.maxRange}
               autoComplete="off"
               handleChange={this.handleChange}
               width="165px"
@@ -61,11 +74,11 @@ class SetRange extends Component {
 }
 
 const mapStateToProps = store => ({
-  randomNumber: store.NGRandomNumber
+  NGNumbers: store.NGNumbers
 });
 
 const mapDispatchToProps = dispatch => ({
-  setRandomNumber: number => dispatch(actions.setRandomNumber(number))
+  setNumbers: number => dispatch(actions.setNumbers(number))
 });
 
 export default connect(
