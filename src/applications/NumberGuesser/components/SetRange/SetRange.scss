@@ -1,0 +1,30 @@
+.SetRange {
+  border: 1px solid red;
+  width: 90%;
+  margin: 1rem;
+  padding: 0.5rem;
+  max-width: 500px;
+  min-width: 470px;
+  background-color: white;
+  h3 {
+    padding-left: 0.5rem;
+  }
+  button {
+    margin-top: 1.5rem;
+  }
+  .form-set-range {
+    display: flex;
+    // border: 1px solid red;
+  }
+  .inputs {
+    // border: 1px solid blue;
+    justify-content: space-between;
+    display: flex;
+    margin-right: 1rem;
+    width: 75%;
+  }
+  .btn {
+    // margin: auto 0;
+    font-size: 16px;
+  }
+}
