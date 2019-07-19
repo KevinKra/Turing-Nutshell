@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { calcRandomNum } from "../../../../_utils/helpers";
 import "./ChallengerSection.scss";
-import TextInput from "../Input/Input";
-import Button from "../Button/Button";
+import TextInput from "../../components/Input/Input";
+import Button from "../../components/Button/Button";
 import { connect } from "react-redux";
 import * as actions from "../../../../_redux/actions";
 

@@ -1,0 +1,19 @@
+.container-results-section {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid red;
+  margin: 1rem;
+  .challenger-outputs {
+    display: flex;
+  }
+  h3 {
+    display: block;
+    border: 1px solid red;
+  }
+  aside {
+    width: 50%;
+    text-align: center;
+    border: 1px solid red;
+  }
+}

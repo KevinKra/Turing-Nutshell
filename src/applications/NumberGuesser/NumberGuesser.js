@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import SetRange from "./components/SetRange/SetRange";
-import ChallengerSection from "./components/ChallengerSection/ChallengerSection";
+import SetRange from "./containers/SetRange/SetRange";
+import ChallengerSection from "./containers/ChallengerSection/ChallengerSection";
+import LatestScore from "./containers/LatestScore/LatestScore";
 import "./NumberGuesser.scss";
 
 class NumberGuesser extends Component {
@@ -18,23 +19,7 @@ class NumberGuesser extends Component {
           <section className="inputs-section">
             <SetRange title="Set Range" />
             <ChallengerSection />
-            <section className="container-results-section container">
-              <h3>Latest Score</h3>
-              <div className="challenger-outputs">
-                <aside className="challenger-output-1">
-                  <h4>Challenger 1 Name</h4>
-                  <p>current guess</p>
-                  <p>50</p>
-                  <p>that's too high</p>
-                </aside>
-                <aside className="challenger-output-2">
-                  <h4>Challenger 2 Name</h4>
-                  <p>current guess</p>
-                  <p>45</p>
-                  <p>that's too low</p>
-                </aside>
-              </div>
-            </section>
+            <LatestScore />
           </section>
           <section className="outputs-section" />
         </main>
