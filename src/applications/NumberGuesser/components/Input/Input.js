@@ -8,6 +8,7 @@ export default function TextInput(props) {
       <input
         type="text"
         name={`${props.name}`}
+        value={`${props.value}`}
         autoComplete={`${props.autoComplete}`}
         onChange={props.handleChange}
       />
