@@ -23,3 +23,17 @@ export const resetGame = () => {
     type: "RESET_GAME"
   };
 };
+
+export const addNewRound = round => {
+  return {
+    type: "ADD_NEW_ROUND",
+    round
+  };
+};
+
+export const removeRound = round => {
+  return {
+    type: "REMOVE_ROUND",
+    round
+  };
+};

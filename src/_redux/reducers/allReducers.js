@@ -42,3 +42,16 @@ export const NGChallengerData = (
       return state;
   }
 };
+
+export const NGRoundData = (state = [], action) => {
+  switch (action.type) {
+    case "ADD_NEW_ROUND":
+      return [...state, action.round];
+    case "REMOVE_ROUND":
+      return state.filter(round => round.id !== action.id);
+    case "RESET_GAME":
+      return [];
+    default:
+      return state;
+  }
+};
