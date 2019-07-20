@@ -8,10 +8,10 @@ import * as actions from "../../../../_redux/actions";
 
 class ChallengerSection extends Component {
   state = {
-    challengerOneName: "",
-    challengerTwoName: "",
-    challengerOneGuess: "",
-    challengerTwoGuess: "",
+    challengerOneName: this.props.challengerData.challengerOneName,
+    challengerTwoName: this.props.challengerData.challengerTwoName,
+    challengerOneGuess: this.props.challengerData.challengerOneGuess,
+    challengerTwoGuess: this.props.challengerData.challengerTwoGuess,
     validInputs: true
   };
 
@@ -26,27 +26,7 @@ class ChallengerSection extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const {
-      challengerOneName,
-      challengerOneGuess,
-      challengerTwoName,
-      challengerTwoGuess
-    } = this.state;
-    const validInputs = inputValidator(
-      challengerOneName,
-      challengerTwoName,
-      challengerOneGuess,
-      challengerTwoGuess
-    );
-    this.setState({ validInputs });
-    if (validInputs) {
-      this.props.updateChallengerData({
-        challengerOneName,
-        challengerOneGuess,
-        challengerTwoName,
-        challengerTwoGuess
-      });
-    }
+    this.validateInputs();
   };
 
   handleClear = e => {
@@ -71,6 +51,30 @@ class ChallengerSection extends Component {
     this.props.resetGame();
     const randomNumber = calcRandomNum(0, 100);
     this.props.setNumbers({ minRange: "", maxRange: "", randomNumber });
+  };
+
+  validateInputs = () => {
+    const {
+      challengerOneName,
+      challengerOneGuess,
+      challengerTwoName,
+      challengerTwoGuess
+    } = this.state;
+    const inputsValidatedBool = inputValidator(
+      challengerOneName,
+      challengerTwoName,
+      challengerOneGuess,
+      challengerTwoGuess
+    );
+    if (inputsValidatedBool) {
+      this.props.updateChallengerData({
+        challengerOneName,
+        challengerOneGuess,
+        challengerTwoName,
+        challengerTwoGuess
+      });
+    }
+    this.setState({ validInputs: inputsValidatedBool });
   };
 
   render() {
