@@ -2,6 +2,7 @@ import React from "react";
 import "./LatestScore.scss";
 import { connect } from "react-redux";
 import * as actions from "../../../../_redux/actions";
+import * as helpers from "../../../../_utils/helpers";
 
 function LatestScore(props) {
   const {
@@ -20,8 +21,24 @@ function LatestScore(props) {
         challengerOneName,
         challengerTwoName,
         winner: name,
-        guess: props.storeNumbers.guess
+        guess: props.storeNumbers.guess,
+        id: Date.now()
       });
+      props.clearGame();
+      const randomNumber = helpers.calcRandomNum(0, 100);
+      props.setNumbers({
+        minRange: "",
+        maxRange: "",
+        randomNumber,
+        guess: 0
+      });
+      props.updateChallengerData({
+        challengerOneName,
+        challengerOneGuess: "",
+        challengerTwoName,
+        challengerTwoGuess: ""
+      });
+      return "Winner!";
     }
     return "(Make a guess!)";
   };
@@ -53,7 +70,11 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addNewRound: round => dispatch(actions.addNewRound(round))
+  addNewRound: round => dispatch(actions.addNewRound(round)),
+  updateChallengerData: data => dispatch(actions.updateChallengerData(data)),
+  resetGame: () => dispatch(actions.resetGame()),
+  clearGame: () => dispatch(actions.clearGame()),
+  setNumbers: numbers => dispatch(actions.setNumbers(numbers))
 });
 
 export default connect(

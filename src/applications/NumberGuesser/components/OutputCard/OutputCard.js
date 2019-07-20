@@ -21,7 +21,7 @@ export default function OutputCard(props) {
       </main>
       <footer>
         <p>{guesses}</p>
-        <i>x</i>
+        <button onClick={() => props.handleClick(props.id)}>x</button>
       </footer>
     </article>
   );

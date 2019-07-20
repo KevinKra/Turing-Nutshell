@@ -169,6 +169,7 @@ const mapDispatchToProps = dispatch => ({
   updateChallengerData: data => dispatch(actions.updateChallengerData(data)),
   clearChallengerData: () => dispatch(actions.clearChallengerData()),
   resetGame: () => dispatch(actions.resetGame()),
+  clearGame: () => dispatch(actions.clearGame()),
   setNumbers: number => dispatch(actions.setNumbers(number)),
   updateGuessCounter: () => dispatch(actions.updateGuessCounter())
 });

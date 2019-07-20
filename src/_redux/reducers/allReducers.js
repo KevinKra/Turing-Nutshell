@@ -1,5 +1,10 @@
 export const NGNumbers = (
-  state = { maxRange: "", minRange: "", randomNumber: "", guess: 0 },
+  state = {
+    maxRange: "",
+    minRange: "",
+    randomNumber: "",
+    guess: 0
+  },
   action
 ) => {
   switch (action.type) {
@@ -13,7 +18,12 @@ export const NGNumbers = (
       };
       return updateGuess();
     case "RESET_GAME":
-      return { minRange: "", maxRange: "", randomNumber: "", guess: 0 };
+      return {
+        minRange: "",
+        maxRange: "",
+        randomNumber: "",
+        guess: 0
+      };
     default:
       return state;
   }
@@ -38,7 +48,7 @@ export const NGChallengerData = (
         challengerOneGuess: "",
         challengerTwoGuess: ""
       };
-    case "RESET_GAME":
+    case "RESET_GAME" || "CLEAR_GAME":
       return {
         challengerOneName: "",
         challengerTwoName: "",
@@ -58,6 +68,8 @@ export const NGRoundData = (state = [], action) => {
       return state.filter(round => round.id !== action.id);
     case "RESET_GAME":
       return [];
+    case "CLEAR_GAME":
+      return state;
     default:
       return state;
   }
