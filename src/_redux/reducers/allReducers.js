@@ -12,14 +12,32 @@ export const NGNumbers = (
   }
 };
 
-export const NGChallengerData = (state = {}, action) => {
+export const NGChallengerData = (
+  state = {
+    challengerOneName: "",
+    challengerTwoName: "",
+    challengerOneGuess: "",
+    challengerTwoGuess: ""
+  },
+  action
+) => {
   switch (action.type) {
     case "UPDATE_CHALLENGER_DATA":
       return action.payload;
     case "CLEAR_CHALLENGER_DATA":
-      return {};
+      return {
+        challengerOneName: "",
+        challengerTwoName: "",
+        challengerOneGuess: "",
+        challengerTwoGuess: ""
+      };
     case "RESET_GAME":
-      return {};
+      return {
+        challengerOneName: "",
+        challengerTwoName: "",
+        challengerOneGuess: "",
+        challengerTwoGuess: ""
+      };
     default:
       return state;
   }
