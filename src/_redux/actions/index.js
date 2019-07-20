@@ -5,6 +5,12 @@ export const setNumbers = numbers => {
   };
 };
 
+export const updateGuessCounter = () => {
+  return {
+    type: "UPDATE_GUESS_COUNTER"
+  };
+};
+
 export const updateChallengerData = data => {
   return {
     type: "UPDATE_CHALLENGER_DATA",

@@ -1,12 +1,19 @@
 export const NGNumbers = (
-  state = { maxRange: "", minRange: "", randomNumber: "" },
+  state = { maxRange: "", minRange: "", randomNumber: "", guess: 0 },
   action
 ) => {
   switch (action.type) {
     case "NG_SET_NUMBERS":
       return action.numbers;
+    case "UPDATE_GUESS_COUNTER":
+      const updateGuess = () => {
+        const stateCopy = { ...state };
+        stateCopy.guess++;
+        return stateCopy;
+      };
+      return updateGuess();
     case "RESET_GAME":
-      return { minRange: "", maxRange: "", randomNumber: "" };
+      return { minRange: "", maxRange: "", randomNumber: "", guess: 0 };
     default:
       return state;
   }
