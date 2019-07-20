@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { calcRandomNum } from "../../../../_utils/helpers";
+import { calcRandomNum, inputValidator } from "../../../../_utils/helpers";
 import "./ChallengerSection.scss";
 import TextInput from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
@@ -32,20 +32,21 @@ class ChallengerSection extends Component {
       challengerTwoName,
       challengerTwoGuess
     } = this.state;
-    if (
-      challengerOneName === "" ||
-      challengerOneGuess === "" ||
-      challengerTwoName === "" ||
-      challengerTwoGuess === ""
-    ) {
-      this.setState({ validInputs: false });
-    }
-    this.props.updateChallengerData({
+    const validInputs = inputValidator(
       challengerOneName,
-      challengerOneGuess,
       challengerTwoName,
+      challengerOneGuess,
       challengerTwoGuess
-    });
+    );
+    this.setState({ validInputs });
+    if (validInputs) {
+      this.props.updateChallengerData({
+        challengerOneName,
+        challengerOneGuess,
+        challengerTwoName,
+        challengerTwoGuess
+      });
+    }
   };
 
   handleClear = e => {
