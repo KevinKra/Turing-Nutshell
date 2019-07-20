@@ -8,8 +8,9 @@ import "./SetRange.scss";
 
 class SetRange extends Component {
   state = {
-    minRange: this.props.NGNumbers.minRange,
-    maxRange: this.props.NGNumbers.maxRange
+    minRange: "",
+    maxRange: "",
+    submitted: false
   };
 
   componentDidMount() {
@@ -26,6 +27,7 @@ class SetRange extends Component {
     const { minRange, maxRange } = this.state;
     const randomNumber = calcRandomNum(minRange || 0, maxRange || 100);
     this.props.setNumbers({ minRange, maxRange, randomNumber, guess: 0 });
+    this.setState({ minRange: "", maxRange: "" });
   };
 
   initialRandomNumber = () => {
@@ -79,7 +81,8 @@ class SetRange extends Component {
 }
 
 const mapStateToProps = store => ({
-  NGNumbers: store.NGNumbers
+  numbersData: store.NGNumbers,
+  challengerData: store.NGChallengerData
 });
 
 const mapDispatchToProps = dispatch => ({
