@@ -16,7 +16,12 @@ function LatestScore(props) {
     if (parsed > props.storeNumbers.randomNumber) return "That's too high!";
     if (parsed < props.storeNumbers.randomNumber) return "That's too low!";
     if (parsed === props.storeNumbers.randomNumber) {
-      props.addNewRound({ challengerOneName, challengerTwoName, winner: name });
+      props.addNewRound({
+        challengerOneName,
+        challengerTwoName,
+        winner: name,
+        guess: props.storeNumbers.guess
+      });
     }
     return "(Make a guess!)";
   };
