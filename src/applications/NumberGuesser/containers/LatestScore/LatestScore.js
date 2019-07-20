@@ -22,6 +22,7 @@ function LatestScore(props) {
         winner: name,
         guess: props.storeNumbers.guess
       });
+      return "Winner!";
     }
     return "(Make a guess!)";
   };
