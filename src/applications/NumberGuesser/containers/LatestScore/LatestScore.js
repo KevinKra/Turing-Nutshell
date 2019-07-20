@@ -12,9 +12,9 @@ function LatestScore(props) {
 
   const determineProximity = guess => {
     const parsed = parseInt(guess);
-    if (parsed > props.NGNumbers.randomNumber) return "That's too high!";
-    if (parsed < props.NGNumbers.randomNumber) return "That's too low!";
-    if (parsed === props.NGNumbers.randomNumber) return "Winner!";
+    if (parsed > props.storeNumbers.randomNumber) return "That's too high!";
+    if (parsed < props.storeNumbers.randomNumber) return "That's too low!";
+    if (parsed === props.storeNumbers.randomNumber) return "Winner!";
     return "(Make a guess!)";
   };
 
@@ -40,7 +40,7 @@ function LatestScore(props) {
 }
 
 const mapStateToProps = store => ({
-  NGNumbers: store.NGNumbers,
+  storeNumbers: store.NGNumbers,
   challengerData: store.NGChallengerData
 });
 
