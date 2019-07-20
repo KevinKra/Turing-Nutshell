@@ -2,8 +2,27 @@ import React from "react";
 import "./Input.scss";
 
 export default function TextInput(props) {
+  const className = props => {
+    if (props.validInputs === false && props.value === "") {
+      return "TextInput invalid";
+    } else {
+      return "TextInput";
+    }
+  };
+  const errorMessage = (
+    <p
+      className={
+        props.validInputs === false && props.value === ""
+          ? "error-message"
+          : "hidden"
+      }
+    >
+      Please enter an input!
+    </p>
+  );
+
   return (
-    <article className="TextInput" style={{ width: `${props.width}` }}>
+    <article className={className(props)} style={{ width: `${props.width}` }}>
       <label htmlFor={`${props.name}`}>{props.label}</label>
       <input
         type="text"
@@ -12,6 +31,7 @@ export default function TextInput(props) {
         autoComplete={`${props.autoComplete}`}
         onChange={props.handleChange}
       />
+      {errorMessage}
     </article>
   );
 }

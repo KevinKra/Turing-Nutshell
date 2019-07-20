@@ -11,7 +11,8 @@ class ChallengerSection extends Component {
     challengerOneName: "",
     challengerTwoName: "",
     challengerOneGuess: "",
-    challengerTwoGuess: ""
+    challengerTwoGuess: "",
+    validInputs: true
   };
 
   handleChangeText = e => {
@@ -31,6 +32,14 @@ class ChallengerSection extends Component {
       challengerTwoName,
       challengerTwoGuess
     } = this.state;
+    if (
+      challengerOneName === "" ||
+      challengerOneGuess === "" ||
+      challengerTwoName === "" ||
+      challengerTwoGuess === ""
+    ) {
+      this.setState({ validInputs: false });
+    }
     this.props.updateChallengerData({
       challengerOneName,
       challengerOneGuess,
@@ -84,6 +93,7 @@ class ChallengerSection extends Component {
               label="Name"
               value={this.state.challengerOneName}
               autoComplete="off"
+              validInputs={this.state.validInputs}
               handleChange={this.handleChangeText}
             />
             <TextInput
@@ -91,6 +101,7 @@ class ChallengerSection extends Component {
               label="Guess"
               value={this.state.challengerOneGuess}
               autoComplete="off"
+              validInputs={this.state.validInputs}
               handleChange={this.handleChangeNumber}
             />
           </div>
@@ -101,6 +112,7 @@ class ChallengerSection extends Component {
               label="Name"
               value={this.state.challengerTwoName}
               autoComplete="off"
+              validInputs={this.state.validInputs}
               handleChange={this.handleChangeText}
             />
             <TextInput
@@ -108,6 +120,7 @@ class ChallengerSection extends Component {
               label="Guess"
               value={this.state.challengerTwoGuess}
               autoComplete="off"
+              validInputs={this.state.validInputs}
               handleChange={this.handleChangeNumber}
             />
           </div>
