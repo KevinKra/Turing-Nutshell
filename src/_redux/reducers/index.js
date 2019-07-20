@@ -3,5 +3,6 @@ import * as reducers from "./allReducers";
 
 export const rootReducer = combineReducers({
   NGNumbers: reducers.NGNumbers,
-  NGChallengerData: reducers.NGChallengerData
+  NGChallengerData: reducers.NGChallengerData,
+  NGRoundData: reducers.NGRoundData
 });

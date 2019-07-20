@@ -7,3 +7,13 @@ export const inputValidator = (...inputs) => {
     return input !== "";
   });
 };
+
+export const setTimer = count => {
+  if (count === 0) {
+    let timer = 0;
+    setInterval(() => {
+      timer += 1;
+    }, 1000);
+    return timer;
+  }
+};

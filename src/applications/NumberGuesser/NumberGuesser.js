@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import SetRange from "./containers/SetRange/SetRange";
 import ChallengerSection from "./containers/ChallengerSection/ChallengerSection";
 import LatestScore from "./containers/LatestScore/LatestScore";
+import OutputSection from "./containers/OutputSection/OutputSection";
 import "./NumberGuesser.scss";
 
 class NumberGuesser extends Component {
@@ -21,7 +22,9 @@ class NumberGuesser extends Component {
             <ChallengerSection />
             <LatestScore />
           </section>
-          <section className="outputs-section" />
+          <section className="outputs-section">
+            <OutputSection />
+          </section>
         </main>
       </section>
     );
