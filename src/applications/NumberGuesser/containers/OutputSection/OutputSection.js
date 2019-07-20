@@ -10,6 +10,7 @@ function OutputSection(props) {
         challengerTwoName={round.challengerTwoName}
         winner={round.winner}
         guess={round.guess}
+        key={round.id}
       />
     );
   });

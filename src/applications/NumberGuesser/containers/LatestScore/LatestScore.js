@@ -21,7 +21,8 @@ function LatestScore(props) {
         challengerOneName,
         challengerTwoName,
         winner: name,
-        guess: props.storeNumbers.guess
+        guess: props.storeNumbers.guess,
+        id: Date.now()
       });
       props.resetGame();
       const randomNumber = helpers.calcRandomNum(0, 100);

@@ -57,7 +57,7 @@ export const NGRoundData = (state = [], action) => {
     case "REMOVE_ROUND":
       return state.filter(round => round.id !== action.id);
     case "RESET_GAME":
-      return [];
+      return state;
     default:
       return state;
   }
