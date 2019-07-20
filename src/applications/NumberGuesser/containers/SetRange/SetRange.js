@@ -25,13 +25,18 @@ class SetRange extends Component {
     e.preventDefault();
     const { minRange, maxRange } = this.state;
     const randomNumber = calcRandomNum(minRange || 0, maxRange || 100);
-    this.props.setNumbers({ minRange, maxRange, randomNumber });
+    this.props.setNumbers({ minRange, maxRange, randomNumber, guess: 0 });
   };
 
   initialRandomNumber = () => {
     const { minRange, maxRange } = this.state;
     const randomNumber = calcRandomNum(minRange || 0, maxRange || 100);
-    this.props.setNumbers({ minRange: "", maxRange: "", randomNumber });
+    this.props.setNumbers({
+      minRange: "",
+      maxRange: "",
+      randomNumber,
+      guess: 0
+    });
   };
 
   render() {
