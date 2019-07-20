@@ -32,6 +32,12 @@ function LatestScore(props) {
         randomNumber,
         guess: 0
       });
+      props.updateChallengerData({
+        challengerOneName,
+        challengerOneGuess: "",
+        challengerTwoName,
+        challengerTwoGuess: ""
+      });
       return "Winner!";
     }
     return "(Make a guess!)";
@@ -65,6 +71,7 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => ({
   addNewRound: round => dispatch(actions.addNewRound(round)),
+  updateChallengerData: data => dispatch(actions.updateChallengerData(data)),
   resetGame: () => dispatch(actions.resetGame()),
   clearGame: () => dispatch(actions.clearGame()),
   setNumbers: numbers => dispatch(actions.setNumbers(numbers))
