@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { calcRandomNum, inputValidator } from "../../../../_utils/helpers";
+import * as helpers from "../../../../_utils/helpers";
 import "./ChallengerSection.scss";
 import TextInput from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
@@ -50,8 +50,13 @@ class ChallengerSection extends Component {
       challengerTwoGuess: ""
     });
     this.props.resetGame();
-    const randomNumber = calcRandomNum(0, 100);
-    this.props.setNumbers({ minRange: "", maxRange: "", randomNumber });
+    const randomNumber = helpers.calcRandomNum(0, 100);
+    this.props.setNumbers({
+      minRange: "",
+      maxRange: "",
+      randomNumber,
+      guess: 0
+    });
     this.setState({ validInputs: true });
   };
 
@@ -62,7 +67,7 @@ class ChallengerSection extends Component {
       challengerTwoName,
       challengerTwoGuess
     } = this.state;
-    const inputsValidatedBool = inputValidator(
+    const inputsValidatedBool = helpers.inputValidator(
       challengerOneName,
       challengerTwoName,
       challengerOneGuess,
@@ -75,6 +80,7 @@ class ChallengerSection extends Component {
         challengerTwoName,
         challengerTwoGuess
       });
+      this.props.updateGuessCounter();
     }
     this.setState({ validInputs: inputsValidatedBool });
   };
@@ -163,7 +169,8 @@ const mapDispatchToProps = dispatch => ({
   updateChallengerData: data => dispatch(actions.updateChallengerData(data)),
   clearChallengerData: () => dispatch(actions.clearChallengerData()),
   resetGame: () => dispatch(actions.resetGame()),
-  setNumbers: number => dispatch(actions.setNumbers(number))
+  setNumbers: number => dispatch(actions.setNumbers(number)),
+  updateGuessCounter: () => dispatch(actions.updateGuessCounter())
 });
 
 export default connect(
