@@ -38,7 +38,7 @@ export const NGChallengerData = (
         challengerOneGuess: "",
         challengerTwoGuess: ""
       };
-    case "RESET_GAME":
+    case "RESET_GAME" || "CLEAR_GAME":
       return {
         challengerOneName: "",
         challengerTwoName: "",
@@ -57,6 +57,8 @@ export const NGRoundData = (state = [], action) => {
     case "REMOVE_ROUND":
       return state.filter(round => round.id !== action.id);
     case "RESET_GAME":
+      return [];
+    case "CLEAR_GAME":
       return state;
     default:
       return state;

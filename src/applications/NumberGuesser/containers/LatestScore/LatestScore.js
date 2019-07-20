@@ -24,7 +24,7 @@ function LatestScore(props) {
         guess: props.storeNumbers.guess,
         id: Date.now()
       });
-      props.resetGame();
+      props.clearGame();
       const randomNumber = helpers.calcRandomNum(0, 100);
       props.setNumbers({
         minRange: "",
@@ -66,6 +66,7 @@ const mapStateToProps = store => ({
 const mapDispatchToProps = dispatch => ({
   addNewRound: round => dispatch(actions.addNewRound(round)),
   resetGame: () => dispatch(actions.resetGame()),
+  clearGame: () => dispatch(actions.clearGame()),
   setNumbers: numbers => dispatch(actions.setNumbers(numbers))
 });
 

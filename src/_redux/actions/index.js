@@ -30,6 +30,12 @@ export const resetGame = () => {
   };
 };
 
+export const clearGame = () => {
+  return {
+    type: "CLEAR_GAME"
+  };
+};
+
 export const addNewRound = round => {
   return {
     type: "ADD_NEW_ROUND",
