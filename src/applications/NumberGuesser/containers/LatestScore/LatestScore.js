@@ -11,9 +11,10 @@ function LatestScore(props) {
   } = props.challengerData;
 
   const determineProximity = guess => {
-    if (guess > props.NGNumbers.randomNumber) return "That's too high!";
-    if (guess < props.NGNumbers.randomNumber) return "That's too low!";
-    if (guess === props.NGNumbers.randomNumber) return "Winner!";
+    const parsed = parseInt(guess);
+    if (parsed > props.NGNumbers.randomNumber) return "That's too high!";
+    if (parsed < props.NGNumbers.randomNumber) return "That's too low!";
+    if (parsed === props.NGNumbers.randomNumber) return "Winner!";
     return "(Make a guess!)";
   };
 

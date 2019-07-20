@@ -38,6 +38,7 @@ class ChallengerSection extends Component {
       challengerTwoGuess: ""
     });
     this.props.clearChallengerData();
+    this.setState({ validInputs: true });
   };
 
   handleReset = e => {
@@ -51,6 +52,7 @@ class ChallengerSection extends Component {
     this.props.resetGame();
     const randomNumber = calcRandomNum(0, 100);
     this.props.setNumbers({ minRange: "", maxRange: "", randomNumber });
+    this.setState({ validInputs: true });
   };
 
   validateInputs = () => {
