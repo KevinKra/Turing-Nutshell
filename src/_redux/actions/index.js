@@ -43,9 +43,9 @@ export const addNewRound = round => {
   };
 };
 
-export const removeRound = round => {
+export const removeRound = id => {
   return {
     type: "REMOVE_ROUND",
-    round
+    id
   };
 };
